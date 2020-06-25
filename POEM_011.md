@@ -104,6 +104,8 @@ This POEM also covers other modifications to the API, internals, and documentati
     * Add recording of metadata aka options for all Systems to Solver and Problem !
     * Add recording of record_abs_error, record_rel_error, and record_solver_residuals to Problem
     * Add options_excludes to Driver, Solver, and Problem !
+* All recorders, regardless of what objects they are attached to, should record information about all
+    systems in the model
 * Update the docs to be more clear about what recording option to set for a given need and then how to get that data
     * If I want to record X
     * What recording option do I set?
@@ -129,6 +131,8 @@ To break this large POEM into manageable PRs, it is proposed to do these PRs:
     * Add recording of inputs, outputs, and residuals to Problem. Add recording of outputs and residuals to Driver
 * PR #7
     * Add recording of record_abs_error, record_rel_error, and record_solver_residuals to Problem
+* PR #8
+    * Add system options for all systems in the model to all case recording files
  
  
  Update the format_version value in the case recording file as needed.
