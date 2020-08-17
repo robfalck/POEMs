@@ -22,14 +22,14 @@ For this reason, the method set_solve_print exists to recurse through the model 
 
 This behavior would also be convenient with AnalysisError.
 A model could have many components which raise AnalysisError in certain situations, such as meta-models with extrapolation disabled.
-When optimizing using SNOPT, a triggered AnalysisError results in a backtracking of the optimziation line search and results in a `D` being desplayed in the iteration status.
+When optimizing using SNOPT, a triggered AnalysisError results in a backtracking of the optimization line search and results in a `D` being desplayed in the iteration status.
 Tracking exactly which component triggered that AnalysisError is difficult.
 This POEM first proposes adding a `verbose` setting to AnalysisError that will print the file and line number where the AnalysisError was raised.
 
 Description
 -----------
 
-1. Verose AnalysisError
+1. Verbose AnalysisError
 
 Add argument `verbose` to AnalysisError.  If True, AnalysisError's `__init__` should do something like the following:
 
@@ -54,6 +54,8 @@ om.options['verbose_analysis_error'] = True
 ```
 
 In order to be useful for debugging, these settings have to override any set during the model creation.
+Other settings might just be defaults that are overridden in the model creation.
+How should we distinguish between the two?
 
 A default value of `unspecified` will prevent the behavior defined during model creation from being overridden.
 
@@ -77,11 +79,14 @@ This will allow users to exchange settings files when sharing models.
 Notional Settings File Format
 -----------------------------
 ```
-[defaults]
+[debug]
 solver_print = -1
 verbose_analysiserror = False
 
 [N2]
 initial_depth = 5
-
 ```
+
+- section `[debug]` is for general debugging settings that should override any values set during model creation.
+- section `[N2]` controls default settings for the N2 viewer
+
