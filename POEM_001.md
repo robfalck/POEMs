@@ -14,14 +14,12 @@ Status:
 - [x] Integrated
 
 
-Motivation
-----------
+## Motivation
 Changes some existing unit definitions and adds others to make
 OpenMDAO more suitable to astrodynamics applications "out of the box."
 
 
-Description
------------
+## Description
 
 This POEM proposes the following changes:
 
@@ -35,8 +33,7 @@ definition of `c0*365.25*d` [2]
 of `648000/pi*au` [3]
 
 
-References
-----------
+## References
 
 1. Luzum, B., Capitaine, N., Fienga, A., Folkner, W., Fukushima, T., Hilton. J., Hohenkerk, C., Krasinsky,
 G., Petit, G., Pitjeva, E., Soffel, M., Wallace, P., 2011, “The IAU 2009 system of astronomical constants: the report of the IAU Working Group on Numerical Standards for Fundamental Astronomy,”
