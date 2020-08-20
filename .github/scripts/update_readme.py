@@ -14,8 +14,7 @@ re_poem = re.compile(r'POEM_(\d{1,3})\.md')
 
 
 def parse_poem(file):
-    entries = {}
-    entries['status'] = 'active'
+    entries = {'status': 'active'}
 
     with open(file, 'r') as poem:
         lines = poem.readlines()
