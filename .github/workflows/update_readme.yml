@@ -1,12 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: UPDATE_README
+name: Update README
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
     branches: [ develop ]
+  # workflow_dispatch allows to run your workflow manually
+  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,12 +25,28 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: echo Hello, world!
-
-    # Runs a set of commands using the runners shell
-    - name: Run a multi-line script
+#    # Runs a single command using the runners shell
+#    - name: Run a one-line script
+#      run: echo Hello, world!
+#
+#    # Runs a set of commands using the runners shell
+#    - name: Run a multi-line script
+#      run: |
+#        echo Add other actions to build,
+#        echo test, and deploy your project.
+    - name: Run script
+      # Here we are setting our secret API Key
+      # Details: https://docs.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
+#      env:
+#        DEV_TO_API_KEY: ${{ secrets.DEV_TO_API_KEY }}
+#      run: ruby ./scripts/rb/update_readme.rb
+      run: python ./.github/scripts/update_readme.py
+    # Our script updated README.md, but we need to commit all changes
+    - name: Commit and push if changed
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        git add .
+        git diff
+        git config --global user.email "github-action@github.com"
+        git config --global user.name "GitHub Action"
+        git commit -m "Updated README" -a || echo "No changes to commit"
+        git push
