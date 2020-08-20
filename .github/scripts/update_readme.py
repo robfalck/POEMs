@@ -55,11 +55,11 @@ def build_poem_table():
     # Collect the information
 
     for file in os.listdir(os.getcwd()):
+        print(file)
         match = re_poem.match(file)
         if match:
             id_str = int(match.groups()[0])
             table_dict[id_str] = parse_poem(file)
-        print(file, bool(match))
 
     # Write the table
 

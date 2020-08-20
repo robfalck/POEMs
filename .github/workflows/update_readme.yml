@@ -34,6 +34,8 @@ jobs:
 #      run: |
 #        echo Add other actions to build,
 #        echo test, and deploy your project.
+    - name: Check git branch
+      run: git branch
     - name: Run script
       # Here we are setting our secret API Key
       # Details: https://docs.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
