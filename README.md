@@ -22,3 +22,8 @@ The OpenMDAO POEMs repository (i.e. this repo) contains a full record of all POE
 Both the core development team and external users participate, and input on any POEM is welcome from any user at any time.
 
 ## List of POEMs
+
+| POEM ID | Title | Author | Status |
+| ------- | ----- | ------ | ------ |
+| 000 | POEM Purpose and Guidelines | justinsgray (Justin S. Gray) | active |
+
