@@ -59,6 +59,7 @@ def build_poem_table():
         if match:
             id_str = int(match.groups()[0])
             table_dict[id_str] = parse_poem(file)
+        print(file, bool(match))
 
     # Write the table
 
